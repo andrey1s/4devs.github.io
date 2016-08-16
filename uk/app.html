@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html ng-app="4devs" lang="uk" ng-init="title='4devs'" class="ng-scope">
+<head>
+    <base href="/">
+    <style type="text/css">@charset "UTF-8";
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide:not(.ng-hide-animate) {
+        display: none !important;
+    }
+
+    ng\:form {
+        display: block;
+    }
+
+    .ng-animate-shim {
+        visibility: hidden;
+    }
+
+    .ng-anchor {
+        position: absolute;
+    }</style>
+    <meta charset="utf-8">
+    <title ng-bind="title|trans:{}:'AppBundle'" class="ng-binding">Розробка веб проектів</title>
+    <meta name="description"
+          content="4devs - команда розробників. Ми допоможемо Вам зробити Ваш проект успішним, а Вас - щасливим. Є питання? Не соромтеся, ми тут для того щоб допомогти Вам.">
+    <meta name="keywords" content="4devs, php, розробка Symfony2">
+    <meta name="viewport" content="width=device-width">
+    <meta name="fragment" content="!">
+    <base href="/">
+    <link rel="stylesheet" href="/css/landing.css?1.4?1.4">
+    <!--[if lt IE 10]>
+    <link rel="stylesheet" href="/css/ie9.css?1.4">
+    <![endif]-->
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?1.4">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png?1.4">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png?1.4">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png?1.4">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png?1.4">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png?1.4">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?1.4">
+</head>
+<body>
+<!-- uiView: undefined -->
+<ui-view name="header" class="ng-scope">
+    <header id="header" class="header ng-scope" ng-controller="HeaderController">
+        <div class="fixed-width">
+            <div class="header-inner">
+                <div class="header-inner__item header-inner__item--logo">
+                    <div class="logo">&lt;4devs/&gt;</div>
+                </div>
+                <main-block type="nav" page-data="menu" class="ng-isolate-scope">
+                    <nav class="nav ng-scope" ng-class="{'nav--open': mobileNavShow}"
+                         ng-click="mobileNavShow = !mobileNavShow" ng-controller="NavController as vm">
+                        <ul class="nav__list " items="items" on-action="goTo(item)" trans-domain="AppBundle">
+                            <!-- ngRepeat: item in items -->
+                            <li class="nav__list-item ng-scope" ng-repeat="item in items"><a class="nav__item "
+                                                                                             ng-href="/uk/index.html"
+                                                                                             ui-sref="index.page(params(item))"
+                                                                                             ng-class="linkClass(item)"
+                                                                                             ng-click="click(item);"
+                                                                                             href="/uk/index.html">Головна</a>
+                                <ul class="nav__list nav__list--sublist" ng-class="navListClass(item)"
+                                    list-class="nav__list--sublist" on-action="click(item);" items="item.children">
+                                    <!-- ngRepeat: item in items --></ul>
+                            </li><!-- end ngRepeat: item in items -->
+                            <li class="nav__list-item ng-scope" ng-repeat="item in items"><a class="nav__item "
+                                                                                             ng-href="/uk/app.html#steps"
+                                                                                             ui-sref="index.page(params(item))"
+                                                                                             ng-class="linkClass(item)"
+                                                                                             ng-click="click(item);"
+                                                                                             href="/uk/app.html#steps">Етапи
+                                роботи</a>
+                                <ul class="nav__list nav__list--sublist" ng-class="navListClass(item)"
+                                    list-class="nav__list--sublist" on-action="click(item);" items="item.children">
+                                    <!-- ngRepeat: item in items --></ul>
+                            </li><!-- end ngRepeat: item in items -->
+                            <li class="nav__list-item ng-scope" ng-repeat="item in items"><a class="nav__item "
+                                                                                             ng-href="/uk/app.html#portfolio"
+                                                                                             ui-sref="index.page(params(item))"
+                                                                                             ng-class="linkClass(item)"
+                                                                                             ng-click="click(item);"
+                                                                                             href="/uk/app.html#portfolio">Портфолiо</a>
+                                <ul class="nav__list nav__list--sublist" ng-class="navListClass(item)"
+                                    list-class="nav__list--sublist" on-action="click(item);" items="item.children">
+                                    <!-- ngRepeat: item in items --></ul>
+                            </li><!-- end ngRepeat: item in items -->
+                            <li class="nav__list-item ng-scope" ng-repeat="item in items"><a class="nav__item "
+                                                                                             ng-href="/uk/app.html#team"
+                                                                                             ui-sref="index.page(params(item))"
+                                                                                             ng-class="linkClass(item)"
+                                                                                             ng-click="click(item);"
+                                                                                             href="/uk/app.html#team">Команда</a>
+                                <ul class="nav__list nav__list--sublist" ng-class="navListClass(item)"
+                                    list-class="nav__list--sublist" on-action="click(item);" items="item.children">
+                                    <!-- ngRepeat: item in items --></ul>
+                            </li><!-- end ngRepeat: item in items -->
+                            <li class="nav__list-item ng-scope" ng-repeat="item in items"><a class="nav__item "
+                                                                                             ng-href="/uk/app.html#dignity"
+                                                                                             ui-sref="index.page(params(item))"
+                                                                                             ng-class="linkClass(item)"
+                                                                                             ng-click="click(item);"
+                                                                                             href="/uk/app.html#dignity">Робота
+                                з нами</a>
+                                <ul class="nav__list nav__list--sublist" ng-class="navListClass(item)"
+                                    list-class="nav__list--sublist" on-action="click(item);" items="item.children">
+                                    <!-- ngRepeat: item in items --></ul>
+                            </li><!-- end ngRepeat: item in items -->
+                            <li class="nav__list-item ng-scope" ng-repeat="item in items"><a
+                                    class="nav__item nav__item--lang material-icons nav__item--expanded"
+                                    ng-href="/uk/app.html" ui-sref="index.page(params(item))" ng-class="linkClass(item)"
+                                    ng-click="click(item);" href="/uk/app.html">language</a>
+                                <ul class="nav__list nav__list--sublist" ng-class="navListClass(item)"
+                                    list-class="nav__list--sublist" on-action="click(item);" items="item.children">
+                                    <!-- ngRepeat: item in items -->
+                                    <li class="nav__list-item ng-scope" ng-repeat="item in items"><a class="nav__item "
+                                                                                                     ng-href="/ru/app.html"
+                                                                                                     ui-sref="index.page(params(item))"
+                                                                                                     ng-class="linkClass(item)"
+                                                                                                     ng-click="click(item);"
+                                                                                                     href="/ru/app.html">Русский</a>
+                                        <ul class="nav__list nav__list--sublist" ng-class="navListClass(item)"
+                                            list-class="nav__list--sublist" on-action="click(item);"
+                                            items="item.children"><!-- ngRepeat: item in items --></ul>
+                                    </li><!-- end ngRepeat: item in items -->
+                                    <li class="nav__list-item ng-scope" ng-repeat="item in items"><a class="nav__item "
+                                                                                                     ng-href="/en/app.html"
+                                                                                                     ui-sref="index.page(params(item))"
+                                                                                                     ng-class="linkClass(item)"
+                                                                                                     ng-click="click(item);"
+                                                                                                     href="/en/app.html">English</a>
+                                        <ul class="nav__list nav__list--sublist" ng-class="navListClass(item)"
+                                            list-class="nav__list--sublist" on-action="click(item);"
+                                            items="item.children"><!-- ngRepeat: item in items --></ul>
+                                    </li><!-- end ngRepeat: item in items -->
+                                    <li class="nav__list-item ng-scope" ng-repeat="item in items"><a class="nav__item "
+                                                                                                     ng-href="/uk/app.html"
+                                                                                                     ui-sref="index.page(params(item))"
+                                                                                                     ng-class="linkClass(item)"
+                                                                                                     ng-click="click(item);"
+                                                                                                     href="/uk/app.html">Українська</a>
+                                        <ul class="nav__list nav__list--sublist" ng-class="navListClass(item)"
+                                            list-class="nav__list--sublist" on-action="click(item);"
+                                            items="item.children"><!-- ngRepeat: item in items --></ul>
+                                    </li><!-- end ngRepeat: item in items --></ul>
+                            </li><!-- end ngRepeat: item in items --></ul>
+                    </nav>
+                </main-block>
+                <!-- uiView: nav -->
+                <div ui-view="nav" class="header-inner__item header-inner__item--nav ng-scope"></div>
+                <div class="header-inner__item header-inner__item--h-phone">
+                    <a class="h-phone ng-binding" href="https://github.com/4devs"></a>
+                </div>
+            </div>
+        </div>
+    </header>
+</ui-view>
+<!--main content start-->
+<!--[if lt IE 10]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+<!-- uiView: undefined -->
+<ui-view name="main" class="ng-scope">
+    <main class="ng-scope">
+        <main-block page-data="data.steps" type="steps" class="ng-isolate-scope">
+            <section id="steps" class="steps content-block">
+                <div class="fixed-width content-block__inner">
+                    <h1 class="ng-binding">Етапи розробки</h1>
+                    <h3><i class="ng-binding">Від ідеї до запуску. Саме таким чином відбувається співпраця з нами.</i>
+                    </h3>
+                    <div>
+                        <ul class="steps-list layout layout-row layout-wrap">
+                            <!-- ngRepeat: item in pageData.stages -->
+                            <li class="flex flex-25 flex-md-50 flex-sm-50 steps-list__item ng-scope steps-list__item--idea"
+                                ng-class="'steps-list__item--' + item.type" ng-repeat="item in pageData.stages">
+                                <div class="steps-list__item-title ng-binding">
+                                    Обговорення проекту
+                                </div>
+                                <div class="steps-list__item-description ng-binding">
+                                    Ви розповідаєте нам про свою ідею або проект, його основні цілі, своє бачення. Ми
+                                    консультуємо вас щодо технічної сторони питання, пропонуємо варіанти реалізації.
+                                </div>
+                            </li><!-- end ngRepeat: item in pageData.stages -->
+                            <li class="flex flex-25 flex-md-50 flex-sm-50 steps-list__item ng-scope steps-list__item--specification"
+                                ng-class="'steps-list__item--' + item.type" ng-repeat="item in pageData.stages">
+                                <div class="steps-list__item-title ng-binding">
+                                    Складання ТЗ
+                                </div>
+                                <div class="steps-list__item-description ng-binding">
+                                    Вникаємо в усі деталі. Реалізацію складних проектів поділяємо на етапи для більш
+                                    швидкого запуску і досягнення результатів.
+                                </div>
+                            </li><!-- end ngRepeat: item in pageData.stages -->
+                            <li class="flex flex-25 flex-md-50 flex-sm-50 steps-list__item ng-scope steps-list__item--price"
+                                ng-class="'steps-list__item--' + item.type" ng-repeat="item in pageData.stages">
+                                <div class="steps-list__item-title ng-binding">
+                                    Оцінка вартості
+                                </div>
+                                <div class="steps-list__item-description ng-binding">
+                                    Робимо оцінку проекту за часом та вартістю на основі технічного завдання.
+                                </div>
+                            </li><!-- end ngRepeat: item in pageData.stages -->
+                            <li class="flex flex-25 flex-md-50 flex-sm-50 steps-list__item ng-scope steps-list__item--agreement"
+                                ng-class="'steps-list__item--' + item.type" ng-repeat="item in pageData.stages">
+                                <div class="steps-list__item-title ng-binding">
+                                    Підписання договору
+                                </div>
+                                <div class="steps-list__item-description ng-binding">
+                                    Складаємо індивідуальний договір на розробку. Підписуємо.
+                                </div>
+                            </li><!-- end ngRepeat: item in pageData.stages -->
+                            <li class="flex flex-25 flex-md-50 flex-sm-50 steps-list__item ng-scope steps-list__item--design"
+                                ng-class="'steps-list__item--' + item.type" ng-repeat="item in pageData.stages">
+                                <div class="steps-list__item-title ng-binding">
+                                    Дизайн + Верстка
+                                </div>
+                                <div class="steps-list__item-description ng-binding">
+                                    Розробляємо унікальний дизайн, або ж спільно вибираємо готовий шаблон на основі
+                                    цілей і задач проекту.
+                                </div>
+                            </li><!-- end ngRepeat: item in pageData.stages -->
+                            <li class="flex flex-25 flex-md-50 flex-sm-50 steps-list__item ng-scope steps-list__item--development"
+                                ng-class="'steps-list__item--' + item.type" ng-repeat="item in pageData.stages">
+                                <div class="steps-list__item-title ng-binding">
+                                    Активна розробка
+                                </div>
+                                <div class="steps-list__item-description ng-binding">
+                                    Програмісти беруться за справу. Ви можете відстежувати результати роботи на
+                                    виділеному демо сервері.
+                                </div>
+                            </li><!-- end ngRepeat: item in pageData.stages -->
+                            <li class="flex flex-25 flex-md-50 flex-sm-50 steps-list__item ng-scope steps-list__item--testing"
+                                ng-class="'steps-list__item--' + item.type" ng-repeat="item in pageData.stages">
+                                <div class="steps-list__item-title ng-binding">
+                                    Тестування і прийом робіт
+                                </div>
+                                <div class="steps-list__item-description ng-binding">
+                                    Починаємо тестовий період згідно з договором. Усі недоліки і баги будуть виправлені
+                                    без будь-яких доплат.
+                                </div>
+                            </li><!-- end ngRepeat: item in pageData.stages -->
+                            <li class="flex flex-25 flex-md-50 flex-sm-50 steps-list__item ng-scope steps-list__item--start"
+                                ng-class="'steps-list__item--' + item.type" ng-repeat="item in pageData.stages">
+                                <div class="steps-list__item-title ng-binding">
+                                    Запуск і підтримка
+                                </div>
+                                <div class="steps-list__item-description ng-binding">
+                                    Проект готов вирішувати ваші бізнес завдання. Розгортаємо проект на основному
+                                    сервері.
+                                </div>
+                            </li><!-- end ngRepeat: item in pageData.stages -->
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main-block>
+        <main-block page-data="data.portfolio" type="portfolio" class="ng-isolate-scope">
+            <section id="portfolio" class="content-block content-block--type-2 content-block--portfolio">
+                <div class="fixed-width content-block__inner">
+                    <h1 class="ng-binding">Наше портфолiо</h1>
+                    <h3><i class="ng-binding">роботи якими ми пишаємося</i></h3>
+
+                    <!--portfolio list start-->
+                    <div ng-controller="PortfolioListController" class="ng-scope">
+
+                        <ul class="portfolio-list layout layout-row layout-wrap">
+
+                            <!-- ngRepeat: item in vm.items -->
+                            <li class="flex flex-25 flex-md-50 flex-sm-50 portfolio-list__item ng-scope"
+                                ng-repeat="item in vm.items" ng-click="vm.showModal(item)">
+
+                                <div class="portfolio-list__item-image-placeholder"
+                                     ng-class="{'portfolio-list__item-image-placeholder--no-image': !item.image}"
+                                     ng-style="item.image &amp;&amp; {'background-image': 'url(' + (item.image|thumb:'small') + ')'}"
+                                     style="background-image: url(/uploads/catalog/small_kazsmeta.png);">
+                                    <span class="portfolio-list__item-no-image ng-binding">немає фото</span>
+                                    <div class="portfolio-list__item-image-show-more"></div>
+                                </div>
+                                <div class="portfolio-list__item-title">
+                                    <a class="portfolio-list__item-link ng-binding">KAZSMETA 2.0 CLOUD</a>
+                                </div>
+                                <div class="portfolio-list__item-description ng-binding">Програмне забезпечення для
+                                    кошторисних розрахунків
+                                </div>
+                            </li><!-- end ngRepeat: item in vm.items -->
+                            <li class="flex flex-25 flex-md-50 flex-sm-50 portfolio-list__item ng-scope"
+                                ng-repeat="item in vm.items" ng-click="vm.showModal(item)">
+
+                                <div class="portfolio-list__item-image-placeholder"
+                                     ng-class="{'portfolio-list__item-image-placeholder--no-image': !item.image}"
+                                     ng-style="item.image &amp;&amp; {'background-image': 'url(' + (item.image|thumb:'small') + ')'}"
+                                     style="background-image: url(/uploads/catalog/small_exchange-small.png);">
+                                    <span class="portfolio-list__item-no-image ng-binding">немає фото</span>
+                                    <div class="portfolio-list__item-image-show-more"></div>
+                                </div>
+                                <div class="portfolio-list__item-title">
+                                    <a class="portfolio-list__item-link ng-binding">Обмін валют</a>
+                                </div>
+                                <div class="portfolio-list__item-description ng-binding">Онлайн система обміну валют
+                                </div>
+                            </li><!-- end ngRepeat: item in vm.items -->
+                            <li class="flex flex-25 flex-md-50 flex-sm-50 portfolio-list__item ng-scope"
+                                ng-repeat="item in vm.items" ng-click="vm.showModal(item)">
+
+                                <div class="portfolio-list__item-image-placeholder"
+                                     ng-class="{'portfolio-list__item-image-placeholder--no-image': !item.image}"
+                                     ng-style="item.image &amp;&amp; {'background-image': 'url(' + (item.image|thumb:'small') + ')'}"
+                                     style="background-image: url(/uploads/catalog/small_ectostroy.png);">
+                                    <span class="portfolio-list__item-no-image ng-binding">немає фото</span>
+                                    <div class="portfolio-list__item-image-show-more"></div>
+                                </div>
+                                <div class="portfolio-list__item-title">
+                                    <a class="portfolio-list__item-link ng-binding">EctoControl</a>
+                                </div>
+                                <div class="portfolio-list__item-description ng-binding">Система моніторингу приміщень
+                                    та управління електроприладами за допомогою браузера.
+                                </div>
+                            </li><!-- end ngRepeat: item in vm.items -->
+                            <li class="flex flex-25 flex-md-50 flex-sm-50 portfolio-list__item ng-scope"
+                                ng-repeat="item in vm.items" ng-click="vm.showModal(item)">
+
+                                <div class="portfolio-list__item-image-placeholder"
+                                     ng-class="{'portfolio-list__item-image-placeholder--no-image': !item.image}"
+                                     ng-style="item.image &amp;&amp; {'background-image': 'url(' + (item.image|thumb:'small') + ')'}"
+                                     style="background-image: url(/uploads/catalog/small_sharkup-cover.png);">
+                                    <span class="portfolio-list__item-no-image ng-binding">немає фото</span>
+                                    <div class="portfolio-list__item-image-show-more"></div>
+                                </div>
+                                <div class="portfolio-list__item-title">
+                                    <a class="portfolio-list__item-link ng-binding">Shark Up</a>
+                                </div>
+                                <div class="portfolio-list__item-description ng-binding">Система віджетів для Вашого
+                                    сайту
+                                </div>
+                            </li><!-- end ngRepeat: item in vm.items -->
+                            <li class="flex flex-25 flex-md-50 flex-sm-50 portfolio-list__item ng-scope"
+                                ng-repeat="item in vm.items" ng-click="vm.showModal(item)">
+
+                                <div class="portfolio-list__item-image-placeholder"
+                                     ng-class="{'portfolio-list__item-image-placeholder--no-image': !item.image}"
+                                     ng-style="item.image &amp;&amp; {'background-image': 'url(' + (item.image|thumb:'small') + ')'}"
+                                     style="background-image: url(/uploads/catalog/small_burninggears-ru.png);">
+                                    <span class="portfolio-list__item-no-image ng-binding">немає фото</span>
+                                    <div class="portfolio-list__item-image-show-more"></div>
+                                </div>
+                                <div class="portfolio-list__item-title">
+                                    <a class="portfolio-list__item-link ng-binding">Gears Network Cloud</a>
+                                </div>
+                                <div class="portfolio-list__item-description ng-binding">Серверне рішення для проектів
+                                    на Unity3d
+                                </div>
+                            </li><!-- end ngRepeat: item in vm.items -->
+                            <li class="flex flex-25 flex-md-50 flex-sm-50 portfolio-list__item ng-scope"
+                                ng-repeat="item in vm.items" ng-click="vm.showModal(item)">
+
+                                <div class="portfolio-list__item-image-placeholder"
+                                     ng-class="{'portfolio-list__item-image-placeholder--no-image': !item.image}"
+                                     ng-style="item.image &amp;&amp; {'background-image': 'url(' + (item.image|thumb:'small') + ')'}"
+                                     style="background-image: url(/uploads/catalog/small_resources-4devs.png);">
+                                    <span class="portfolio-list__item-no-image ng-binding">немає фото</span>
+                                    <div class="portfolio-list__item-image-show-more"></div>
+                                </div>
+                                <div class="portfolio-list__item-title">
+                                    <a class="portfolio-list__item-link ng-binding">Корисні ресурси</a>
+                                </div>
+                                <div class="portfolio-list__item-description ng-binding">Каталог популярних ресурсів
+                                </div>
+                            </li><!-- end ngRepeat: item in vm.items -->
+                            <li class="flex flex-25 flex-md-50 flex-sm-50 portfolio-list__item ng-scope"
+                                ng-repeat="item in vm.items" ng-click="vm.showModal(item)">
+
+                                <div class="portfolio-list__item-image-placeholder"
+                                     ng-class="{'portfolio-list__item-image-placeholder--no-image': !item.image}"
+                                     ng-style="item.image &amp;&amp; {'background-image': 'url(' + (item.image|thumb:'small') + ')'}"
+                                     style="background-image: url(/uploads/catalog/small_event-calendar-demo.png);">
+                                    <span class="portfolio-list__item-no-image ng-binding">немає фото</span>
+                                    <div class="portfolio-list__item-image-show-more"></div>
+                                </div>
+                                <div class="portfolio-list__item-title">
+                                    <a class="portfolio-list__item-link ng-binding">Календар University of Michigan</a>
+                                </div>
+                                <div class="portfolio-list__item-description ng-binding">Всі події університету в одному
+                                    місці
+                                </div>
+                            </li><!-- end ngRepeat: item in vm.items -->
+                            <li class="flex flex-25 flex-md-50 flex-sm-50 portfolio-list__item ng-scope"
+                                ng-repeat="item in vm.items" ng-click="vm.showModal(item)">
+
+                                <div class="portfolio-list__item-image-placeholder"
+                                     ng-class="{'portfolio-list__item-image-placeholder--no-image': !item.image}"
+                                     ng-style="item.image &amp;&amp; {'background-image': 'url(' + (item.image|thumb:'small') + ')'}"
+                                     style="background-image: url(/uploads/catalog/small_camping.png);">
+                                    <span class="portfolio-list__item-no-image ng-binding">немає фото</span>
+                                    <div class="portfolio-list__item-image-show-more"></div>
+                                </div>
+                                <div class="portfolio-list__item-title">
+                                    <a class="portfolio-list__item-link ng-binding">Походи по Криму</a>
+                                </div>
+                                <div class="portfolio-list__item-description ng-binding">Туристичні маршрути по Криму
+                                </div>
+                            </li><!-- end ngRepeat: item in vm.items -->
+                            <li class="flex flex-25 flex-md-50 flex-sm-50 portfolio-list__item ng-scope"
+                                ng-repeat="item in vm.items" ng-click="vm.showModal(item)">
+
+                                <div class="portfolio-list__item-image-placeholder"
+                                     ng-class="{'portfolio-list__item-image-placeholder--no-image': !item.image}"
+                                     ng-style="item.image &amp;&amp; {'background-image': 'url(' + (item.image|thumb:'small') + ')'}"
+                                     style="background-image: url(/uploads/catalog/small_slovari-full.png);">
+                                    <span class="portfolio-list__item-no-image ng-binding">немає фото</span>
+                                    <div class="portfolio-list__item-image-show-more"></div>
+                                </div>
+                                <div class="portfolio-list__item-title">
+                                    <a class="portfolio-list__item-link ng-binding">Словник Даля</a>
+                                </div>
+                                <div class="portfolio-list__item-description ng-binding">Швидкий пошук тлумачення слів
+                                </div>
+                            </li><!-- end ngRepeat: item in vm.items -->
+                            <li class="flex flex-25 flex-md-50 flex-sm-50 portfolio-list__item ng-scope"
+                                ng-repeat="item in vm.items" ng-click="vm.showModal(item)">
+
+                                <div class="portfolio-list__item-image-placeholder"
+                                     ng-class="{'portfolio-list__item-image-placeholder--no-image': !item.image}"
+                                     ng-style="item.image &amp;&amp; {'background-image': 'url(' + (item.image|thumb:'small') + ')'}"
+                                     style="background-image: url(/uploads/catalog/small_company_full.png);">
+                                    <span class="portfolio-list__item-no-image ng-binding">немає фото</span>
+                                    <div class="portfolio-list__item-image-show-more"></div>
+                                </div>
+                                <div class="portfolio-list__item-title">
+                                    <a class="portfolio-list__item-link ng-binding">Корпоративний сайт</a>
+                                </div>
+                                <div class="portfolio-list__item-description ng-binding">Сайт для зв'язку з клієнтами
+                                </div>
+                            </li><!-- end ngRepeat: item in vm.items -->
+                            <li class="flex flex-25 flex-md-50 flex-sm-50 portfolio-list__item ng-scope"
+                                ng-repeat="item in vm.items" ng-click="vm.showModal(item)">
+
+                                <div class="portfolio-list__item-image-placeholder"
+                                     ng-class="{'portfolio-list__item-image-placeholder--no-image': !item.image}"
+                                     ng-style="item.image &amp;&amp; {'background-image': 'url(' + (item.image|thumb:'small') + ')'}"
+                                     style="background-image: url(/uploads/catalog/small_blog_full.png);">
+                                    <span class="portfolio-list__item-no-image ng-binding">немає фото</span>
+                                    <div class="portfolio-list__item-image-show-more"></div>
+                                </div>
+                                <div class="portfolio-list__item-title">
+                                    <a class="portfolio-list__item-link ng-binding">Блог на Symfony2</a>
+                                </div>
+                                <div class="portfolio-list__item-description ng-binding">Публікації для IT індустрії
+                                </div>
+                            </li><!-- end ngRepeat: item in vm.items -->
+
+                        </ul>
+
+                        <!--service list start-->
+
+
+                        <!--service list end-->
+
+                    </div>
+
+                    <!--portfolio list end-->
+
+                </div>
+
+
+            </section>
+        </main-block>
+        <main-block page-data="data.team" type="team" class="ng-isolate-scope">
+            <section id="team" class="content-block content-block--type-1 content-block--team">
+                <div class="fixed-width content-block__inner">
+                    <h1 class="ng-binding">Команда професіоналів</h1>
+                    <h3><i class="ng-binding">Робимо роботу добре і крапка</i></h3>
+
+                    <!--steps list start-->
+                    <div ng-controller="TeamListController as vm" class="ng-scope">
+
+                        <ul class="team-list layout layout-row layout-wrap">
+
+                            <!-- ngRepeat: item in vm.items -->
+                            <li class="flex flex-25 flex-md-50 flex-sm-100 team-list__item ng-scope"
+                                ng-repeat="item in vm.items">
+
+                                <div class="team-list__item-row team-list__item-photo-placeholder">
+                                    <img class="team-list__item-photo" ng-src="/uploads/team/small_andrey.png"
+                                         src="/uploads/team/small_andrey.png">
+                                </div>
+
+                                <div class="team-list__item-row team-list__item-title ng-binding">
+                                    Андрій
+                                </div>
+
+                                <div class="team-list__item-row team-list__item-position ng-binding">
+                                    Розробник
+                                </div>
+
+                                <div class="team-list__item-row team-list__item-description ng-binding">
+                                    Понад 7 років досвіду у розробці. Подобається брати участь у розвитку бібліотек з
+                                    відкритим кодом. Вважаю за краще використовувати якісні, покриті тестами бібліотеки
+                                    або модулі Symfony 2. Зацікавлений у складних та нетривіальних завданнях.
+                                </div>
+                                <div class="social ng-isolate-scope" connect-list="item.connect_list"
+                                     metrica-target="_team"><!-- ngRepeat: item in connectList --><a target="_blank"
+                                                                                                     ng-repeat="item in connectList"
+                                                                                                     class="button social__item social__item--fa fa-linkedin"
+                                                                                                     ng-click="$parent.reachGoal(item)"
+                                                                                                     ng-href="https://www.linkedin.com/in/andreysimfi"
+                                                                                                     title="linkedin"
+                                                                                                     href="https://www.linkedin.com/in/andreysimfi"></a>
+                                    <!-- end ngRepeat: item in connectList --><a target="_blank"
+                                                                                 ng-repeat="item in connectList"
+                                                                                 class="button social__item social__item--fa fa-home"
+                                                                                 ng-click="$parent.reachGoal(item)"
+                                                                                 ng-href="http://andrey.4devs.io/"
+                                                                                 title="home"
+                                                                                 href="http://andrey.4devs.io/"></a>
+                                    <!-- end ngRepeat: item in connectList --><a target="_blank"
+                                                                                 ng-repeat="item in connectList"
+                                                                                 class="button social__item social__item--fa fa-github"
+                                                                                 ng-click="$parent.reachGoal(item)"
+                                                                                 ng-href="https://github.com/andrey1s"
+                                                                                 title="github"
+                                                                                 href="https://github.com/andrey1s"></a>
+                                    <!-- end ngRepeat: item in connectList --></div>
+                            </li><!-- end ngRepeat: item in vm.items -->
+                            <li class="flex flex-25 flex-md-50 flex-sm-100 team-list__item ng-scope"
+                                ng-repeat="item in vm.items">
+
+                                <div class="team-list__item-row team-list__item-photo-placeholder">
+                                    <img class="team-list__item-photo" ng-src="/uploads/team/small_yulia.png"
+                                         src="/uploads/team/small_yulia.png">
+                                </div>
+
+                                <div class="team-list__item-row team-list__item-title ng-binding">
+                                    Юлія
+                                </div>
+
+                                <div class="team-list__item-row team-list__item-position ng-binding">
+                                    Дизайнер
+                                </div>
+
+                                <div class="team-list__item-row team-list__item-description ng-binding">
+                                    Зроблю ваш сайт цікавим та інтуїтивно зрозумілим для ваших клієнтів.
+                                </div>
+                                <div class="social ng-isolate-scope" connect-list="item.connect_list"
+                                     metrica-target="_team"><!-- ngRepeat: item in connectList --></div>
+                            </li><!-- end ngRepeat: item in vm.items -->
+                            <li class="flex flex-25 flex-md-50 flex-sm-100 team-list__item ng-scope"
+                                ng-repeat="item in vm.items">
+
+                                <div class="team-list__item-row team-list__item-photo-placeholder">
+                                    <img class="team-list__item-photo" ng-src="/uploads/team/small_IMG_3134_2.jpg"
+                                         src="/uploads/team/small_IMG_3134_2.jpg">
+                                </div>
+
+                                <div class="team-list__item-row team-list__item-title ng-binding">
+                                    Вiктор
+                                </div>
+
+                                <div class="team-list__item-row team-list__item-position ng-binding">
+                                    Менеджер/Розробник
+                                </div>
+
+                                <div class="team-list__item-row team-list__item-description ng-binding">
+                                    Професійний веб-розробник з більш ніж 4,5-річним досвідом роботи. Працював з різними
+                                    технологіями, але більш за все полюбляю Symfony2. Мені подобається те, чим я
+                                    займаюся. Упор роблю на якість та розумні терміни.
+                                </div>
+                                <div class="social ng-isolate-scope" connect-list="item.connect_list"
+                                     metrica-target="_team"><!-- ngRepeat: item in connectList --><a target="_blank"
+                                                                                                     ng-repeat="item in connectList"
+                                                                                                     class="button social__item social__item--fa fa-linkedin"
+                                                                                                     ng-click="$parent.reachGoal(item)"
+                                                                                                     ng-href="http://ua.linkedin.com/in/melnikvictor"
+                                                                                                     title="linkedin"
+                                                                                                     href="http://ua.linkedin.com/in/melnikvictor"></a>
+                                    <!-- end ngRepeat: item in connectList --><a target="_blank"
+                                                                                 ng-repeat="item in connectList"
+                                                                                 class="button social__item social__item--fa fa-github"
+                                                                                 ng-click="$parent.reachGoal(item)"
+                                                                                 ng-href="https://github.com/vmelnik-ukraine"
+                                                                                 title="github"
+                                                                                 href="https://github.com/vmelnik-ukraine"></a>
+                                    <!-- end ngRepeat: item in connectList --><a target="_blank"
+                                                                                 ng-repeat="item in connectList"
+                                                                                 class="button social__item social__item--fa fa-home"
+                                                                                 ng-click="$parent.reachGoal(item)"
+                                                                                 ng-href="http://victor.4devs.io"
+                                                                                 title="home"
+                                                                                 href="http://victor.4devs.io"></a>
+                                    <!-- end ngRepeat: item in connectList --><a target="_blank"
+                                                                                 ng-repeat="item in connectList"
+                                                                                 class="button social__item social__item--fa fa-skype"
+                                                                                 ng-click="$parent.reachGoal(item)"
+                                                                                 ng-href="skype:victor-4devs"
+                                                                                 title="skype"
+                                                                                 href="skype:victor-4devs"></a>
+                                    <!-- end ngRepeat: item in connectList --></div>
+                            </li><!-- end ngRepeat: item in vm.items -->
+                            <li class="flex flex-25 flex-md-50 flex-sm-100 team-list__item ng-scope"
+                                ng-repeat="item in vm.items">
+
+                                <div class="team-list__item-row team-list__item-photo-placeholder">
+                                    <img class="team-list__item-photo" ng-src="/uploads/team/small_ruslan2.png"
+                                         src="/uploads/team/small_ruslan2.png">
+                                </div>
+
+                                <div class="team-list__item-row team-list__item-title ng-binding">
+                                    Руслан
+                                </div>
+
+                                <div class="team-list__item-row team-list__item-position ng-binding">
+                                    Node.js розробник
+                                </div>
+
+                                <div class="team-list__item-row team-list__item-description ng-binding">
+                                    Шанувальник Node.js. Мені не подобається постійно оновлювати сторінки, тому я
+                                    розробляю комплексні сайти з оновленнями в режимі реального часу.
+                                </div>
+                                <div class="social ng-isolate-scope" connect-list="item.connect_list"
+                                     metrica-target="_team"><!-- ngRepeat: item in connectList --><a target="_blank"
+                                                                                                     ng-repeat="item in connectList"
+                                                                                                     class="button social__item social__item--fa fa-bitbucket"
+                                                                                                     ng-click="$parent.reachGoal(item)"
+                                                                                                     ng-href="https://bitbucket.org/sfs333"
+                                                                                                     title="bitbucket"
+                                                                                                     href="https://bitbucket.org/sfs333"></a>
+                                    <!-- end ngRepeat: item in connectList --><a target="_blank"
+                                                                                 ng-repeat="item in connectList"
+                                                                                 class="button social__item social__item--fa fa-skype"
+                                                                                 ng-click="$parent.reachGoal(item)"
+                                                                                 ng-href="skype:simfersfs856"
+                                                                                 title="skype"
+                                                                                 href="skype:simfersfs856"></a>
+                                    <!-- end ngRepeat: item in connectList --></div>
+                            </li><!-- end ngRepeat: item in vm.items -->
+
+                        </ul>
+
+                    </div>
+                </div>
+            </section>
+        </main-block>
+        <main-block page-data="data.feedback" type="feedback" class="ng-isolate-scope">
+            <section id="feedback" class="content-block content-block--type-2 content-block--feedback">
+                <div class="fixed-width content-block__inner">
+                    <h1 class="ng-binding">Відгуки</h1>
+
+                    <h3><i class="ng-binding">Що наші клієнти говорять про нас</i></h3>
+
+                    <!--feedback list start-->
+                    <div class="carousel feedback-list ng-scope" ng-controller="FeedbackListController as vm">
+                        <ul rn-carousel="" rn-carousel-controls="" rn-carousel-controls-allow-loop=""
+                            class="carousel__main ng-scope">
+                            <!-- ngRepeat: item in vm.items -->
+                            <li ng-repeat="item in vm.items" class="ng-scope"
+                                style="display: inline-block; -webkit-transform: translate3d(0%, 0px, 0px);">
+                                <div class="feedback-list__item layout layout-row layout-wrap">
+                                    <div class="flex-25 flex-sm-100 feedback-list__item-column">
+                                        <div class="feedback-list__item-user">
+                                            <div class="feedback-list__item-user-row feedback-list__item-user-photo-placeholder">
+                                                <img class="feedback-list__item-user-photo"
+                                                     ng-src="/img/feedback/evgeniy.jpg" src="/img/feedback/evgeniy.jpg">
+                                            </div>
+                                            <div class="feedback-list__item-user-row feedback-list__item-user-name ng-binding">
+                                                Євген Востріков
+                                            </div>
+                                            <div class="feedback-list__item-user-row feedback-list__item-user-position ng-binding">
+                                                Співзасновник сервісу SharkUP
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex-75 flex-sm-100 layout layout-column feedback-list__item-column">
+                                        <div class="feedback-list__item-details">
+                                            <div class="flex-100 layout">
+                                                <div class="flex-30 feedback-list__item-date-wrap ng-binding"
+                                                     ng-show="item.date">Дата:
+                                                    <span class="feedback-list__item-date ng-binding">
+                                            29.08.2015
+                                        </span>
+                                                </div>
+                                                <div class="flex-70 feedback-list__item-project-wrap ng-binding"
+                                                     ng-show="item.project">Проект:
+                                                    <span class="feedback-list__item-project ng-binding">
+                                            Разработка сервиса Widgets для сайта
+                                        </span>
+                                                </div>
+                                            </div>
+                                            <div class="flex-100">
+                                                <p class="feedback-list__item-content ng-binding">
+                                                    Справились с задачей на отлично! Команда действительно
+                                                    Профессионалов. По нашему проекту соблюдены все сроки, все
+                                                    договоренности, все оформлено документально. Будем работать дальше,
+                                                    грамотную команду найти действительно сложно, знаем на своем горьком
+                                                    опыте. Рекомендуем.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li><!-- end ngRepeat: item in vm.items -->
+                        </ul>
+                        <div class="rn-carousel-controls ng-scope">
+                            <!-- ngIf: carouselIndex > 0 || true --><span
+                                class="rn-carousel-control rn-carousel-control-prev ng-scope" ng-click="prevSlide()"
+                                ng-if="carouselIndex &gt; 0 || true"></span><!-- end ngIf: carouselIndex > 0 || true -->
+                            <!-- ngIf: carouselIndex < (vm.items).length - 1 || true --><span
+                                class="rn-carousel-control rn-carousel-control-next ng-scope" ng-click="nextSlide()"
+                                ng-if="carouselIndex &lt; (vm.items).length - 1 || true"></span>
+                            <!-- end ngIf: carouselIndex < (vm.items).length - 1 || true -->
+                        </div>
+                    </div>
+
+                    <!--feedback list end-->
+
+                </div>
+            </section>
+        </main-block>
+        <main-block page-data="data.dignity" type="dignity" class="ng-isolate-scope">
+            <section id="dignity" class="dignity content-block content-block">
+                <div class="fixed-width content-block__inner">
+                    <h1 class="ng-binding">Наші достоїнства і недоліки</h1>
+
+                    <h3><i class="ng-binding">плюси і мінуси співпраці з нами</i></h3>
+
+                    <div class="dignity__table ng-scope" ng-controller="DignityListController as vm">
+
+                        <div class="layout dignity__row">
+                            <div class="dignity__cell dignity__header ng-binding">Наші переваги</div>
+                            <div class="dignity__cell dignity__header ng-binding">Наші недоліки</div>
+                        </div>
+
+                        <!-- ngRepeat: item in vm.items -->
+                        <div class="dignity__block ng-scope" ng-repeat="item in vm.items">
+                            <div class="layout dignity__row">
+                                <div class="dignity__cell dignity__cell--positive ng-binding">Дотримуємось термінів
+                                </div>
+                                <div class="dignity__cell dignity__cell--negative ng-binding">Не працюємо безкоштовно і
+                                    за їжу
+                                </div>
+                            </div>
+                            <div class="layout dignity__row">
+                                <div class="dignity__cell  ng-binding" ng-bind-html="item.positive.description|t"><p>Ми
+                                    усвідомлюємо наскільки важливий&nbsp;для вас час і тому не затримуємо строки, всі
+                                    роботи здаємо вчасно.</p></div>
+                                <div class="dignity__cell  ng-binding" ng-bind-html="item.negative.description|t"><p>
+                                    Вважаємо, що якісно виконана робота повинна бути відповідно оплачена.</p></div>
+                            </div>
+                        </div><!-- end ngRepeat: item in vm.items -->
+                        <div class="dignity__block ng-scope" ng-repeat="item in vm.items">
+                            <div class="layout dignity__row">
+                                <div class="dignity__cell dignity__cell--positive ng-binding">Професіоналізм</div>
+                                <div class="dignity__cell dignity__cell--negative ng-binding">Ми все ще молода
+                                    компанія
+                                </div>
+                            </div>
+                            <div class="layout dignity__row">
+                                <div class="dignity__cell  ng-binding" ng-bind-html="item.positive.description|t"><p>Ми
+                                    працюємо тільки з кращими, передовими технологіями, такими як <a
+                                            href="http://symfony.com" target="_blank">Symfony</a> фреймворк . Виконуємо
+                                    роботу сумлінно, професійно.</p></div>
+                                <div class="dignity__cell  ng-binding" ng-bind-html="item.negative.description|t"><p>
+                                    Цілком можливо, що ви про нас ще не чули. Цей недолік&nbsp;допоможуть виправити
+                                    відгуки наших клієнтів.</p></div>
+                            </div>
+                        </div><!-- end ngRepeat: item in vm.items -->
+                        <div class="dignity__block ng-scope" ng-repeat="item in vm.items">
+                            <div class="layout dignity__row">
+                                <div class="dignity__cell dignity__cell--positive ng-binding">Гарантія якості</div>
+                                <div class="dignity__cell dignity__cell--negative ng-binding">Орієнтуємося на кінцевого
+                                    користувача
+                                </div>
+                            </div>
+                            <div class="layout dignity__row">
+                                <div class="dignity__cell  ng-binding" ng-bind-html="item.positive.description|t"><p>
+                                    Завжди надаємо тестовий період в ході якого всі знайдені недоліки будуть безкоштовно
+                                    виправлені.</p></div>
+                                <div class="dignity__cell  ng-binding" ng-bind-html="item.negative.description|t"><p>
+                                    Наша головна мета - зробити проект максимально корисним і зручним для ваших кінцевих
+                                    користувачів, а не для вашої дружини.</p></div>
+                            </div>
+                        </div><!-- end ngRepeat: item in vm.items -->
+                        <div class="dignity__block ng-scope" ng-repeat="item in vm.items">
+                            <div class="layout dignity__row">
+                                <div class="dignity__cell dignity__cell--positive ng-binding">Підвищена увага до
+                                    деталей
+                                </div>
+                                <div class="dignity__cell dignity__cell--negative ng-binding">Робимо з нуля</div>
+                            </div>
+                            <div class="layout dignity__row">
+                                <div class="dignity__cell  ng-binding" ng-bind-html="item.positive.description|t"><p>
+                                    Враховуємо всі ваші побажання, задовольняємо всі вимоги. Нічого не буде пропущено
+                                    або забуто.</p></div>
+                                <div class="dignity__cell  ng-binding" ng-bind-html="item.negative.description|t"><p>
+                                    Спеціалізуємося на складних і нестандартних сайтах, не використовуємо CMS (система
+                                    управління вмістом), тому розробка простих і шаблонних сайтів з нами буде коштувати
+                                    дорожче.</p></div>
+                            </div>
+                        </div><!-- end ngRepeat: item in vm.items -->
+                        <div class="dignity__block ng-scope" ng-repeat="item in vm.items">
+                            <div class="layout dignity__row">
+                                <div class="dignity__cell dignity__cell--positive ng-binding">Гнучкість</div>
+                                <div class="dignity__cell dignity__cell--negative ng-binding"></div>
+                            </div>
+                            <div class="layout dignity__row">
+                                <div class="dignity__cell  ng-binding" ng-bind-html="item.positive.description|t"><p>Для
+                                    більш швидкого запуску проекту і досягнення перших результатів ми можемо розбити
+                                    роботу на етапи. Перший етап призначений для розробки MVP (мінімальний&nbsp;життєздатний
+                                    продукт). Решта етапів&nbsp;- розширення функціональності проекту в залежності від
+                                    реакції і потреб кінцевих користувачів.</p></div>
+                                <div class="dignity__cell  ng-binding" ng-bind-html="item.negative.description|t"></div>
+                            </div>
+                        </div><!-- end ngRepeat: item in vm.items -->
+                        <div class="dignity__block ng-scope" ng-repeat="item in vm.items">
+                            <div class="layout dignity__row">
+                                <div class="dignity__cell dignity__cell--positive ng-binding">Завжди на зв'язку</div>
+                                <div class="dignity__cell dignity__cell--negative ng-binding"></div>
+                            </div>
+                            <div class="layout dignity__row">
+                                <div class="dignity__cell  ng-binding" ng-bind-html="item.positive.description|t"><p>Ви
+                                    завжди можете зв'язатися з нами зручним для вас способом і уточнити, на якій стадії
+                                    готовності знаходиться сайт. Більш того, ви завжди можете подивитися результати на
+                                    демо сервері.</p></div>
+                                <div class="dignity__cell  ng-binding" ng-bind-html="item.negative.description|t"></div>
+                            </div>
+                        </div><!-- end ngRepeat: item in vm.items -->
+                    </div>
+
+                </div>
+            </section>
+        </main-block>
+        <main-block page-data="data.footer" type="footer" class="ng-isolate-scope">
+            <footer class="footer content-block content-block--type-2">
+                <main-block type="contacts" ng-show="pageData.showContacts" class="ng-isolate-scope ng-hide">
+                    <section id="contacts" class="contacts" ng-class="pageData.class">
+                        <div class="fixed-width content-block__inner">
+                            <h1 class="ng-binding">Напишіть нам</h1>
+                            <h3><i class="ng-binding">Виникли питання? Давайте їх обговоримо!</i></h3>
+
+                            <div class="layout layout-row layout-wrap">
+                                <div class="flex-50 flex-sm-100 contacts__column">
+
+                                    <span class="contacts__tooltip contacts__tooltip--form ng-binding">Виникли питання? Заповніть форму і наші фахівці зв'яжуться з Вами.</span>
+
+                                    <!--service description start-->
+                                    <!-- ngInclude: undefined -->
+                                    <ng-include src="'/tpl/contact-form.tpl.html'" class="ng-scope">
+                                        <form class="contact-from ng-pristine ng-scope ng-valid-server ng-invalid ng-invalid-required ng-valid-minlength ng-valid-maxlength ng-valid-email"
+                                              ng-controller="ContactFormController as vm" novalidate=""
+                                              name="ContactForm"
+                                              ng-submit="vm.submit(vm.message,ContactForm,'_contact_us')">
+
+                                            <div class="form__row has-success ng-binding"
+                                                 ng-bind="vm.successMessage"></div>
+                                            <div class="form__row"
+                                                 ng-class="{'has-error': vm.hasError(ContactForm.name)}">
+                                                <label class="form__label contact-from__visibility--modal-only ng-binding">Ваше
+                                                    iм'я<span class="form__required-asterix">*</span></label>
+                                                <input class="input--name ng-pristine ng-untouched ng-valid-server ng-invalid ng-invalid-required ng-valid-minlength ng-valid-maxlength"
+                                                       ng-model="vm.message.name" name="name" placeholder="Ваше iм'я"
+                                                       type="text" minlength="2" maxlength="50" required="" server="">
+
+                                                <div class="ng-hide ng-active" ng-messages="ContactForm.name.$error"
+                                                     role="alert" ng-show="vm.hasError(ContactForm.name)">
+                                                    <!-- ngMessage: required -->
+                                                    <div ng-message="required" class="ng-binding ng-scope">Значення не
+                                                        повинно бути пустим.
+                                                    </div>
+                                                    <!-- ngMessage: minlength -->
+                                                    <!-- ngMessage: maxlength -->
+                                                    <!-- ngRepeat: error in ContactForm.name.errors -->
+                                                </div>
+                                            </div>
+                                            <div class="form__row"
+                                                 ng-class="{'has-error': vm.hasError(ContactForm.email)}">
+                                                <label class="form__label contact-from__visibility--modal-only ng-binding">Ваш
+                                                    Email <span class="form__required-asterix">*</span></label>
+                                                <input class="input--email ng-pristine ng-untouched ng-valid-email ng-valid-server ng-invalid ng-invalid-required"
+                                                       ng-model="vm.message.email" name="email" placeholder="Ваш Email"
+                                                       type="email" required="" server="">
+
+                                                <div class="ng-hide ng-active" ng-messages="ContactForm.email.$error"
+                                                     multiple="" role="alert" ng-show="vm.hasError(ContactForm.email)">
+                                                    <!-- ngMessage: required -->
+                                                    <div ng-message="required" class="ng-binding ng-scope">Значення не
+                                                        повинно бути пустим.
+                                                    </div>
+                                                    <!-- ngMessage: email -->
+                                                    <!-- ngRepeat: error in ContactForm.email.errors -->
+                                                </div>
+                                            </div>
+                                            <div class="form__row"
+                                                 ng-class="{'has-error': vm.hasError(ContactForm.phone)}">
+                                                <label class="form__label contact-from__visibility--modal-only ng-binding">Ваш
+                                                    телефон</label>
+                                                <input class="input--phone ng-pristine ng-untouched ng-valid ng-valid-server ng-valid-minlength"
+                                                       minlength="6" ng-model="vm.message.phone" name="phone"
+                                                       placeholder="Ваш телефон" type="text" server="">
+
+                                                <div class="ng-hide ng-inactive" ng-messages="ContactForm.phone.$error"
+                                                     multiple="" role="alert" ng-show="vm.hasError(ContactForm.phone)">
+                                                    <!-- ngMessage: minlength -->
+                                                    <!-- ngRepeat: error in ContactForm.phone.errors -->
+                                                </div>
+                                            </div>
+
+                                            <div class="form__row"
+                                                 ng-class="{'has-error': vm.hasError(ContactForm.message)}">
+                                                <label class="form__label contact-from__visibility--modal-only ng-binding">Повiдомлення
+                                                    <span class="form__required-asterix">*</span></label>
+                                                <textarea placeholder="Введiть Ваше повiдомлення..."
+                                                          ng-model="vm.message.message" name="message" required=""
+                                                          maxlength="2500" minlength="2" server=""
+                                                          class="ng-pristine ng-untouched ng-valid-server ng-invalid ng-invalid-required ng-valid-minlength ng-valid-maxlength"></textarea>
+
+                                                <div class="ng-hide ng-active" ng-messages="ContactForm.message.$error"
+                                                     multiple="" role="alert"
+                                                     ng-show="vm.hasError(ContactForm.message)">
+                                                    <!-- ngMessage: required -->
+                                                    <div ng-message="required" class="ng-binding ng-scope">Значення не
+                                                        повинно бути пустим.
+                                                    </div>
+                                                    <!-- ngMessage: maxlength -->
+                                                    <!-- ngMessage: minlength -->
+                                                    <!-- ngRepeat: error in ContactForm.message.errors -->
+                                                </div>
+                                            </div>
+
+                                            <div class="form__row form__actions">
+                                                <input type="submit"
+                                                       ng-disabled="ContactForm.$dirty &amp;&amp; ContactForm.$invalid"
+                                                       class="form__actions_submit" value="Вiдправити">
+                                            </div>
+
+                                        </form>
+                                    </ng-include>
+                                    <!--service description end-->
+
+                                </div>
+                                <div class="flex-50 flex-sm-100 contacts__column">
+
+                                    <span class="contacts__tooltip contacts__tooltip--details ng-binding">Або зв'яжіться з нами будь-яким зручним для Вас способом!</span>
+
+                                    <!--service list start-->
+                                    <div class="contacts-details">
+                                        <div class="contacts-details__work-time ng-binding">
+                                            Години роботи: пн-пт 9:00 - 18:00 по МСК
+                                        </div>
+                                        <!-- ngRepeat: item in connectList -->
+                                        <div ng-repeat="item in connectList"
+                                             class="contacts-details__item contacts-details__item--envelope"
+                                             name="contact_us" trans-domain="FDevsContactListBundle">Пошта: <a
+                                                href="mailto:manager@4devs.pro" class="ng-binding">manager@4devs.pro</a>
+                                        </div><!-- end ngRepeat: item in connectList -->
+                                        <div ng-repeat="item in connectList"
+                                             class="contacts-details__item contacts-details__item--skype"
+                                             name="contact_us" trans-domain="FDevsContactListBundle">Skype: <a
+                                                href="skype:victor-4devs" class="ng-binding">victor</a></div>
+                                        <!-- end ngRepeat: item in connectList -->
+                                        <div ng-repeat="item in connectList"
+                                             class="contacts-details__item contacts-details__item--phone"
+                                             name="contact_us" trans-domain="FDevsContactListBundle">Тел: <a
+                                                href="tel:+79788138478" class="ng-binding">7(978)8138478</a></div>
+                                        <!-- end ngRepeat: item in connectList -->
+                                    </div>
+                                    <!--service list end-->
+                                </div>
+                            </div>
+
+                        </div>
+                    </section>
+                </main-block>
+                <section class="footer__main">
+                    <div class="fixed-width">
+                        <div class="footer-inner">
+                            <div class="footer-inner__item footer-inner__item--design"></div>
+                            <div class="footer-inner__item">
+                                <div class="social ng-isolate-scope" name="social">
+                                    <!-- ngRepeat: item in connectList --><a target="_blank"
+                                                                             ng-repeat="item in connectList"
+                                                                             class="button social__item social__item--fa fa-home"
+                                                                             ng-click="$parent.reachGoal(item)"
+                                                                             ng-href="http://4devs.io/" title="home"
+                                                                             href="http://4devs.io/"></a>
+                                    <!-- end ngRepeat: item in connectList --><a target="_blank"
+                                                                                 ng-repeat="item in connectList"
+                                                                                 class="button social__item social__item--fa fa-github"
+                                                                                 ng-click="$parent.reachGoal(item)"
+                                                                                 ng-href="https://github.com/4devs"
+                                                                                 title="github"
+                                                                                 href="https://github.com/4devs"></a>
+                                    <!-- end ngRepeat: item in connectList --><a target="_blank"
+                                                                                 ng-repeat="item in connectList"
+                                                                                 class="button social__item social__item--fa fa-youtube"
+                                                                                 ng-click="$parent.reachGoal(item)"
+                                                                                 ng-href="https://www.youtube.com/user/4devs"
+                                                                                 title="youtube"
+                                                                                 href="https://www.youtube.com/user/4devs"></a>
+                                    <!-- end ngRepeat: item in connectList --><a target="_blank"
+                                                                                 ng-repeat="item in connectList"
+                                                                                 class="button social__item social__item--fa fa-linkedin"
+                                                                                 ng-click="$parent.reachGoal(item)"
+                                                                                 ng-href="https://www.linkedin.com/company/4devs---team-of-great-developers"
+                                                                                 title="linkedin"
+                                                                                 href="https://www.linkedin.com/company/4devs---team-of-great-developers"></a>
+                                    <!-- end ngRepeat: item in connectList --><a target="_blank"
+                                                                                 ng-repeat="item in connectList"
+                                                                                 class="button social__item social__item--fa fa-twitter"
+                                                                                 ng-click="$parent.reachGoal(item)"
+                                                                                 ng-href="https://twitter.com/4devsteam"
+                                                                                 title="twitter"
+                                                                                 href="https://twitter.com/4devsteam"></a>
+                                    <!-- end ngRepeat: item in connectList --></div>
+                            </div>
+                            <div class="footer-inner__item">© 4devs.pro 2012 —
+                                <date format="yyyy" class="ng-binding ng-isolate-scope">2016</date>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+            </footer>
+        </main-block>
+    </main>
+</ui-view>
+<!--main content end-->
+<!-- uiView: footer -->
+<div ui-view="footer" class="ng-scope"></div>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">(function (d, w, c) {
+    (w[c] = w[c] || []).push(function () {
+        try {
+            w.yaCounter25960792 = new Ya.Metrika({
+                id: 25960792,
+                webvisor: true,
+                clickmap: true,
+                trackLinks: true,
+                accurateTrackBounce: true,
+                trackHash: true
+            });
+        } catch (e) {
+        }
+    });
+    var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () {
+        n.parentNode.insertBefore(s, n);
+    };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else {
+        f();
+    }
+})(document, window, "yandex_metrika_callbacks");</script>
+<noscript>
+    <div><img src="//mc.yandex.ru/watch/25960792" style="position:absolute; left:-9999px;" alt=""/></div>
+</noscript><!-- /Yandex.Metrika counter -->
+
+
+</body>
+</html>

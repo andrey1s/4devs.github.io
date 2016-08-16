@@ -1,0 +1,86 @@
+
+main, section, header, footer, nav {
+    display: block;
+}
+
+.browsehappy {
+    text-align: center;
+    padding: 40px;
+}
+
+/* Header/Footer fix */
+
+.header-inner, .footer-inner {
+    display: table;
+    width: 100%;
+}
+
+.header-inner__item, .footer-inner__item {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+/* Layout fix */
+
+.layout {
+    display: block;
+    overflow: hidden;
+}
+
+.layout > .flex,
+.layout > .flex-75,
+.layout > .flex-70,
+.layout > .flex-50,
+.layout > .flex-30,
+.layout > .flex-25 {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.layout > .flex-75 {
+    width: 75%;
+    float: left;
+}
+
+.layout > .flex-70 {
+    width: 70%;
+    float: left;
+}
+
+.layout > .flex-50 {
+    width: 50%;
+    float: left;
+}
+
+.layout > .flex-30 {
+    width: 30%;
+}
+
+.layout > .flex-25 {
+    width: 25%;
+}
+
+/* Dignity */
+
+.dignity__cell {
+    min-height: 41px;
+}
+
+/* Feedback */
+
+.feedback-list__item-column {
+    float: left;
+}
+
+.feedback-list__item-details .flex-30,
+.feedback-list__item-details .flex-70 {
+    float: left;
+}
+
+/* Contacts */
+
+.contacts__tooltip--details {
+    top: 88%;
+}
+
+
